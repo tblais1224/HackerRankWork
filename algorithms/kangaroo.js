@@ -35,13 +35,61 @@ function readLine() {
 
 // Complete the kangaroo function below.
 function kangaroo(x1, v1, x2, v2) {
-    
-    do {
-        x1 += v1;
-        x2 += v2
-    } while (x1 !== x2);
+    if (x1 > x2 && v1 > v2 || x2 > x1 && v2 > v1 || v1 == v2) {
+        return ('NO')
+    }\
 
+    
+
+    if (x1 < x2) {
+        do {
+            x1 += v1;
+            x2 += v2;
+        } while (x1 < x2);
+        console.log(x1, x2, 'first');
+        if (x1 == x2) {
+            return ('YES');
+        } else {
+            return ('NO')
+        }
+
+    } else {
+        if (x2 < x1) {
+            do {
+                x1 += v1;
+                x2 += v2;
+            } while (x2 < x1);
+            console.log(x1, x2, 'second');
+            if (x1 == x2) {
+                return ('YES');
+            } else {
+                return ('NO')
+            }
+        }
+    }
 }
+// if (x1 > x2) {
+//     do {
+//         v1 += v2;
+//         x1 +=x2;
+//     } while (x1 > x2);
+//     if (x1 == x2) {
+//         return ('YES');
+//     } else {
+//         return ('NO');
+//     }
+// } else if(x2 > x1) {
+//     do {
+//         v1 += v2;
+//         x1 += x2;
+//     } while (x2 > x1);
+//     if (x2 == x1) {
+//         return ('YES');
+//     } else {
+//         return ('NO');
+//     };
+// }
+
 
 function main() {
     const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
