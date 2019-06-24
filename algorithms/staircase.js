@@ -15,44 +15,47 @@
 // // n: an integer
 
 
-'use strict';
+// 'use strict';
 
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+// process.stdin.resume();
+// process.stdin.setEncoding('utf-8');
 
-let inputString = '';
-let currentLine = 0;
+// let inputString = '';
+// let currentLine = 0;
 
-process.stdin.on('data', inputStdin => {
-    inputString += inputStdin;
-});
+// process.stdin.on('data', inputStdin => {
+//     inputString += inputStdin;
+// });
 
-process.stdin.on('end', _ => {
-    inputString = inputString.replace(/\s*$/, '')
-        .split('\n')
-        .map(str => str.replace(/\s*$/, ''));
+// process.stdin.on('end', _ => {
+//     inputString = inputString.replace(/\s*$/, '')
+//         .split('\n')
+//         .map(str => str.replace(/\s*$/, ''));
 
-    main();
-});
+//     main();
+// });
 
-function readLine() {
-    return inputString[currentLine++];
-}
+// function readLine() {
+//     return inputString[currentLine++];
+// }
 
 // Complete the staircase function below.
 function staircase(n) {
-    
     for (let i = 1; i <= n; i++) {
-        let str = ""
-        for (let j = 1; j <= i - n; j++) {
-            str += " "
+        let temp = ""
+        for (let j = 0; j < i; j++) {
+            temp += "#"
         }
-        
+        for (let k = 0; k < n - i; k++) {
+            temp = " " + temp
+        }
+        console.log(temp)
     }
 }
 
-function main() {
-    const n = parseInt(readLine(), 10);
+staircase(10)
+// function main() {
+//     const n = parseInt(readLine(), 10);
 
-    staircase(n);
-}
+//     staircase(n);
+// }
